@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Segment
+import SegmentIntercom
 
 @main
 struct BasicExampleApp: App {
@@ -19,10 +20,10 @@ struct BasicExampleApp: App {
 
 extension Analytics {
     static var main: Analytics {
-        let analytics = Analytics(configuration: Configuration(writeKey: "<YOUR WRITE KEY>")
+        let analytics = Analytics(configuration: Configuration(writeKey: "7O86AjgXwDLHxwXapRDkSFvqRzLA5n1V")
                     .flushAt(3)
                     .trackApplicationLifecycleEvents(true))
-        //analytics.add(plugin: <Destination>())
+        analytics.add(plugin: IntercomDestination())
         return analytics
     }
 }

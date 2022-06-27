@@ -20,7 +20,7 @@ Open your Package.swift file and add the following do your the `dependencies` se
 ```
 .package(
             name: "Segment",
-            url: "https://github.com/segment-integrations/analytics-swift-firebase.git",
+            url: "https://github.com/segment-integrations/analytics-swift-intercom.git",
             from: "1.1.3"
         ),
 ```
@@ -46,7 +46,7 @@ let analytics = Analytics(configuration: Configuration(writeKey: "<YOUR WRITE KE
 analytics.add(plugin: IntercomDestination())
 ```
 
-Your events will now begin to flow to Firebase in device mode.
+Your events will now begin to flow to Intercom in device mode.
 
 
 ## Support

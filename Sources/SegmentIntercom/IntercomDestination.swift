@@ -25,6 +25,10 @@ import CoreMedia
 // SOFTWARE.
 //
 
+@objc(SEGIntercomDestination)
+public class ObjCSegmentIntercom: NSObject, ObjCDestination, ObjCDestinationShim {
+    public func instance() -> DestinationPlugin { return IntercomDestination() }
+}
 public class IntercomDestination: DestinationPlugin {
     public let timeline = Timeline()
     public let type = PluginType.destination
@@ -45,17 +49,14 @@ public class IntercomDestination: DestinationPlugin {
         guard let tempSettings: IntercomSettings = settings.integrationSettings(forPlugin: self) else { return }
         intercomSettings = tempSettings
         Intercom.setApiKey(tempSettings.mobileApiKey, forAppId: tempSettings.appId)
-        analytics?.log(message: "Intercolm.setApiKey(\(tempSettings.mobileApiKey), forApId:\(tempSettings.appId))", kind: .debug)
     }
     
     public func identify(event: IdentifyEvent) -> IdentifyEvent? {
         
         if let userId = event.userId {
             Intercom.registerUser(withUserId: userId)
-            analytics?.log(message: "Intercom.registerUser(withUserId: \(userId)", kind: .debug)
         } else if let _ = event.anonymousId {
             Intercom.registerUnidentifiedUser()
-            analytics?.log(message: "Intercom.registerUnidentifiedUser()", kind: .debug)
         }
         
         if let integration = event.integrations?.dictionaryValue?["Intercom"] as? [AnyHashable: Any],
@@ -77,7 +78,6 @@ public class IntercomDestination: DestinationPlugin {
         guard let properties = event.properties?.dictionaryValue else {
             
             Intercom.logEvent(withName: event.event)
-            analytics?.log(message: "Intercom.logEvent(withName: \(event.event))", kind: .debug)
             return event
         }
         
@@ -111,7 +111,6 @@ public class IntercomDestination: DestinationPlugin {
         }
         
         Intercom.logEvent(withName: event.event, metaData: output)
-        analytics?.log(message: "Intercom.logEvent(withName: \(event.event), metaData: \(output))", kind: .debug)
         
         return event
     }
@@ -129,14 +128,12 @@ public class IntercomDestination: DestinationPlugin {
         userAttributes.companies = [company]
         
         Intercom.updateUser(userAttributes)
-        analytics?.log(message: "Intercom.updateUser(\(userAttributes))", kind: .debug)
         
         return event
     }
     
     public func reset() {
         Intercom.logout()
-        analytics?.log(message: "Intercom.logout()", kind: .debug)
     }
 }
 
@@ -204,7 +201,6 @@ private extension IntercomDestination {
         
         userAttributes.customAttributes = customAttributes
         Intercom.updateUser(userAttributes)
-        analytics?.log(message: "Intercom.updateUser(\(userAttributes)", kind: .debug)
     }
     
     func setCompanyAttributes(_ company: [String: Any]) -> ICMCompany {

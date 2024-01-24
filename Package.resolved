@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Segment",
+        "repositoryURL": "https://github.com/segmentio/analytics-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "79fb17a5d4abf8f80e6a0935e57c7df7b670a6c0",
+          "version": "1.4.1"
+        }
+      },
+      {
+        "package": "Intercom",
+        "repositoryURL": "https://github.com/intercom/intercom-ios",
+        "state": {
+          "branch": null,
+          "revision": "7d1072dc39ebaf8af117b697730b6aaa834e5f48",
+          "version": "12.4.3"
+        }
+      },
+      {
+        "package": "Sovran",
+        "repositoryURL": "https://github.com/segmentio/Sovran-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "944c17d7c46bd95fc37f09136cabd172be5b413b",
+          "version": "1.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,8 +1,8 @@
 //  Created by Cody Garvin on 9/21/21.
 
 import Segment
-import Intercom
 import CoreMedia
+import Intercom
 
 // Copyright (c) 2022 Twilio
 //
@@ -54,9 +54,27 @@ public class IntercomDestination: DestinationPlugin {
     public func identify(event: IdentifyEvent) -> IdentifyEvent? {
         
         if let userId = event.userId {
-            Intercom.registerUser(withUserId: userId)
+            let userAttributes = ICMUserAttributes()
+            userAttributes.userId = userId
+            Intercom.loginUser(with: userAttributes) { result in
+                switch result {
+                case .success:
+                    print("Logged in")
+                case .failure(let error):
+                    print("Failed: \(error.localizedDescription)")
+                }
+            }
+            
         } else if let _ = event.anonymousId {
-            Intercom.registerUnidentifiedUser()
+            
+            Intercom.loginUnidentifiedUser { result in
+                switch result {
+                case .success:
+                    print("Logged in anonymously")
+                case .failure(let error):
+                    print("Failed: \(error.localizedDescription)")
+                }
+            }
         }
         
         if let integration = event.integrations?.dictionaryValue?["Intercom"] as? [AnyHashable: Any],
@@ -126,8 +144,8 @@ public class IntercomDestination: DestinationPlugin {
         
         let userAttributes = ICMUserAttributes()
         userAttributes.companies = [company]
-        
-        Intercom.updateUser(userAttributes)
+
+        Intercom.updateUser(with: userAttributes)
         
         return event
     }
@@ -200,7 +218,7 @@ private extension IntercomDestination {
         }
         
         userAttributes.customAttributes = customAttributes
-        Intercom.updateUser(userAttributes)
+        Intercom.updateUser(with: userAttributes)
     }
     
     func setCompanyAttributes(_ company: [String: Any]) -> ICMCompany {

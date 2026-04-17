@@ -6,26 +6,35 @@
         "repositoryURL": "https://github.com/segmentio/analytics-swift",
         "state": {
           "branch": "main",
-          "revision": "4c7aab453b56a80d5d2577a378bced8dc20c8f2d",
+          "revision": "acfd5fc1baaf78520d962884672ce1224745c5d1",
           "version": null
         }
       },
       {
         "package": "Intercom",
-        "repositoryURL": "https://github.com/intercom/intercom-ios",
+        "repositoryURL": "https://github.com/intercom/intercom-ios-sp",
         "state": {
           "branch": null,
-          "revision": "7d1072dc39ebaf8af117b697730b6aaa834e5f48",
-          "version": "12.4.3"
+          "revision": "eda17ebd60ede445e205cfa8f880c14569dc58da",
+          "version": "19.1.2"
+        }
+      },
+      {
+        "package": "JSONSafeEncoding",
+        "repositoryURL": "https://github.com/segmentio/jsonsafeencoding-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "af6a8b360984085e36c6341b21ecb35c12f47ebd",
+          "version": "2.0.0"
         }
       },
       {
         "package": "Sovran",
-        "repositoryURL": "https://github.com/segmentio/Sovran-Swift.git",
+        "repositoryURL": "https://github.com/segmentio/sovran-swift.git",
         "state": {
           "branch": null,
-          "revision": "64f3b5150c282a34af4578188dce2fd597e600e3",
-          "version": "1.1.0"
+          "revision": "24867f3e4ac62027db9827112135e6531b6f4051",
+          "version": "1.1.2"
         }
       }
     ]

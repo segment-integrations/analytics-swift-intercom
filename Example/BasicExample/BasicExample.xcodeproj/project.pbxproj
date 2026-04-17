@@ -16,6 +16,7 @@
 		46EDC71327C6B8D200B870D7 /* BasicExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC71227C6B8D200B870D7 /* BasicExampleUITestsLaunchTests.swift */; };
 		46EDC72127C6B92C00B870D7 /* Segment in Frameworks */ = {isa = PBXBuildFile; productRef = 46EDC72027C6B92C00B870D7 /* Segment */; };
 		827C512828661FB5000B1B9E /* SegmentIntercom in Frameworks */ = {isa = PBXBuildFile; productRef = 827C512728661FB5000B1B9E /* SegmentIntercom */; };
+		F6DAD32D2F90D3E9000AF673 /* Intercom in Frameworks */ = {isa = PBXBuildFile; productRef = F6DAD32C2F90D3E9000AF673 /* Intercom */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46EDC72127C6B92C00B870D7 /* Segment in Frameworks */,
+				F6DAD32D2F90D3E9000AF673 /* Intercom in Frameworks */,
 				827C512828661FB5000B1B9E /* SegmentIntercom in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,11 +155,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				F66C32C82F90D5760077958F /* PBXTargetDependency */,
 			);
 			name = BasicExample;
 			packageProductDependencies = (
 				46EDC72027C6B92C00B870D7 /* Segment */,
 				827C512728661FB5000B1B9E /* SegmentIntercom */,
+				F6DAD32C2F90D3E9000AF673 /* Intercom */,
 			);
 			productName = BasicExample;
 			productReference = 46EDC6F227C6B8D100B870D7 /* BasicExample.app */;
@@ -207,7 +211,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					46EDC6F127C6B8D100B870D7 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -233,6 +237,7 @@
 			mainGroup = 46EDC6E927C6B8D100B870D7;
 			packageReferences = (
 				46EDC71F27C6B92C00B870D7 /* XCRemoteSwiftPackageReference "analytics-swift" */,
+				F6DAD32B2F90D293000AF673 /* XCRemoteSwiftPackageReference "intercom-ios-sp" */,
 			);
 			productRefGroup = 46EDC6F327C6B8D100B870D7 /* Products */;
 			projectDirPath = "";
@@ -311,6 +316,10 @@
 			target = 46EDC6F127C6B8D100B870D7 /* BasicExample */;
 			targetProxy = 46EDC70D27C6B8D200B870D7 /* PBXContainerItemProxy */;
 		};
+		F66C32C82F90D5760077958F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F66C32C72F90D5760077958F /* Intercom */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -351,6 +360,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -412,6 +422,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -489,7 +500,6 @@
 		46EDC71A27C6B8D200B870D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -508,7 +518,6 @@
 		46EDC71B27C6B8D200B870D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -527,7 +536,6 @@
 		46EDC71D27C6B8D200B870D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -544,7 +552,6 @@
 		46EDC71E27C6B8D200B870D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -608,6 +615,14 @@
 				kind = branch;
 			};
 		};
+		F6DAD32B2F90D293000AF673 /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/intercom/intercom-ios-sp";
+			requirement = {
+				kind = exactVersion;
+				version = 19.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -619,6 +634,16 @@
 		827C512728661FB5000B1B9E /* SegmentIntercom */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SegmentIntercom;
+		};
+		F66C32C72F90D5760077958F /* Intercom */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6DAD32B2F90D293000AF673 /* XCRemoteSwiftPackageReference "intercom-ios-sp" */;
+			productName = Intercom;
+		};
+		F6DAD32C2F90D3E9000AF673 /* Intercom */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6DAD32B2F90D293000AF673 /* XCRemoteSwiftPackageReference "intercom-ios-sp" */;
+			productName = Intercom;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

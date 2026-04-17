@@ -7,7 +7,7 @@ let package = Package(
     name: "SegmentIntercom",
     platforms: [
         .macOS("10.15"),
-        .iOS("13.0"),
+        .iOS("15.0"),
         .tvOS("11.0"),
         .watchOS("7.1")
     ],
@@ -27,8 +27,8 @@ let package = Package(
         ),
         .package(
             name: "Intercom",
-            url: "https://github.com/intercom/intercom-ios",
-            from: "12.4.3"
+            url: "https://github.com/intercom/intercom-ios-sp",
+            from: "19.1.2"
         )
     ],
     targets: [
